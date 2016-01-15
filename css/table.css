@@ -1,0 +1,38 @@
+.th-silver{
+
+	background-color: #E6E6E6;
+
+}
+
+.inventory table {
+	width:100%;
+}
+
+.inventory thead, .inventory tbody, .inventory tr, .inventory td, .inventory th {
+	display: block;
+}
+
+.inventory tr:after{
+
+	content: ' ';
+	display: block;
+	visibility: hidden;
+	clear: both;
+}
+
+.inventory thead th{
+	height: 30px;
+}
+
+.inventory thead, .inventory tbody {
+	overflow: auto;
+}
+
+.inventory thead {
+	/* fallback */
+}
+
+.inventory tbody td, .inventory thead th {
+	width: 15.2%;
+	float: left;
+}
