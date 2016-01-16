@@ -6,6 +6,7 @@
     <li><a href="#addpro"><span>Add Product</span></a></li>
     <li><a href="#editprice"><span>Edit Price</span></a></li>
 	<li><a href="#editproduct"><span>Edit Product</span></a></li>
+	<li><a href="#listofproduct"><span>List Of Product</span></a></li>
 	<li><a href="#listofstaff"><span>List Of Staff</span></a></li>
 	<li><a href="index.php"><span>Logout</span></a></li>
 </ol>
@@ -46,6 +47,10 @@
 
 	   <tr menu>
 	   <td><a href="#editproduct"><span>Edit Product</span></a></td>
+	   </tr>
+
+	   <tr menu>
+	   <td><a href="#listofproduct"><span>List Of Product</span></a></td>
 	   </tr>
 
 	   <tr menu>

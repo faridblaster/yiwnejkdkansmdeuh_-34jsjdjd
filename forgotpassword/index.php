@@ -54,7 +54,7 @@ if (empty($get_code)) {
           $mail->Host='cloud02.jomhosting.net';  
           $mail->Port='465';   
           $mail->Username   = 'faridblaster@thevalue.com.my'; // SMTP account username
-          $mail->Password   = '';  
+          $mail->Password   = 'a920414105';  
           $mail->SMTPKeepAlive = true;  
           $mail->Mailer = "smtp"; 
           $mail->IsSMTP(); // telling the class to use SMTP  

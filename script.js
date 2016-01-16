@@ -73,25 +73,5 @@ $(function(){
 
 	});
 
-	$("[name=update_product]").click(function(e){
-
-		e.preventDefault();
-
-		var $formData = $(e.currentTarget);
-
-		$.ajax({
-			type: "GET",
-			url: "include/updateproduct.php?farid=faridla",
-			cache: false,
-			success: function(result){
-			
-			console.log(result);
-
-			}
-
-		});
-
-	});
-
 
 });

@@ -192,13 +192,15 @@ include("include/addproitem.php");
 include("include/addpro.php");
 include("include/editprice.php");
 include("include/editproduct.php");
+
+include("include/product_list.php");
 include("include/staff_list.php");
 
 ?>
 
 <script src="activatables.js" type="text/javascript"></script>
 <script type="text/javascript">
-activatables('page', ['inventory', 'alert', 'sales', 'addproitem', 'addpro', 'editprice', 'editproduct', 'listofstaff']);
+activatables('page', ['inventory', 'alert', 'sales', 'addproitem', 'addpro', 'editprice', 'editproduct', 'listofproduct', 'listofstaff']);
 </script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
