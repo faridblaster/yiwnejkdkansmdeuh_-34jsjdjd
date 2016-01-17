@@ -2,7 +2,7 @@
 
 <div class="panel panel-default" style="padding-bottom:10px">
 
-<form action="updateproduct.php" method="post">
+<form action="addproitemprocess.php" method="post">
 
 <div align="center">
 
