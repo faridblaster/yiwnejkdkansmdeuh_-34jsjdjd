@@ -8,6 +8,7 @@
         <th>No.</th>
         <th>Lastname</th>
         <th>Roles</th>
+        <th>email</th>
 		<th style="width:30px; text-align:center;">Modify</th>
       </tr>
     </thead>
@@ -42,6 +43,9 @@
 		
 		</select>
 		</td>
+
+		<td><input type="email" class="form-control input-sm" name="up_email<?=$show['id'];?>" value="<?=$show['email']?>"></td>
+
 		<td style="width:30px;">
 		<span id="resultStatus<?=$show['id'];?>"></span>
 		<span onclick="editUpdateRole(<?=$show['id'];?>)" class="btn btn-default input-sm">Save</span>
@@ -69,9 +73,11 @@
   
   function editUpdateRole(staff_id){
 
+  	var upEmail = $("[name=up_email"+staff_id+"]").val();
+
   	$.ajax({
         type: "GET",
-        url: "include/updaterole.php?staffId="+staff_id+"&staffUpdate=true&role="+defaultRole,
+        url: "include/updaterole.php?staffId="+staff_id+"&staffUpdate=true&role="+defaultRole+"&upEmail="+upEmail,
         beforeSend: function(){ $('#resultStatus'+staff_id).fadeIn(250).css('color', '#017c04').html('processing...'); },
         success: function(result){
 
