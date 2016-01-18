@@ -35,7 +35,7 @@
         <td><?=$show['username']?></td>
 		<td>
 		
-		<select name="set_role" class="form-control input-sm">
+		<select name="set_role<?=$show['id'];?>" class="form-control input-sm">
 		
 		<option value="1" <?php if($show['role']==1) { optionSelected(); } ?>>Administrator</option>
 		<option value="2" <?php if($show['role']==2) { optionSelected(); } ?> >Manager</option>
@@ -60,18 +60,18 @@
   </table>
   
   <script>
-
-  var defaultRole = $('[name=set_role]').val();
-
-  $('[name=set_role]').change(function(key){
-
-  	var roleSelected = key.currentTarget.value;
-
-  	defaultRole = roleSelected;
-
-  })
   
   function editUpdateRole(staff_id){
+
+  	  var defaultRole = $('[name=set_role'+staff_id+']').val();
+
+	  $('[name=set_role'+staff_id+']').change(function(key){
+
+	  	var roleSelected = key.currentTarget.value;
+
+	  	defaultRole = roleSelected;
+
+	  })
 
   	var upEmail = $("[name=up_email"+staff_id+"]").val();
 
