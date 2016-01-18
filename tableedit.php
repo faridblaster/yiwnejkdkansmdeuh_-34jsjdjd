@@ -178,23 +178,42 @@ popupWindow =window.open('printform.php',"_blank","directories=no, status=no, me
 </head>
 
 <body bgcolor="#dedede">
- 
-<h1>Inventory System </h1>
 
 <?php 
 
-include("include/nav.php");
+if(isset($_SESSION['SESS_ROLE_SET'])){
 
-include("include/inventory.php");
-include("include/alert.php");
-include("include/sales.php");
-include("include/addproitem.php");
-include("include/addpro.php");
-include("include/editprice.php");
-include("include/editproduct.php");
+	$roles_sess = $_SESSION['SESS_ROLE_SET'];
+	switch($roles_sess){
 
-include("include/product_list.php");
-include("include/staff_list.php");
+			case 1:
+			echo "<h1>Inventory System (Administrator)</h1>";
+			break;
+
+			case 2:
+			echo "<h1>Inventory System (Manager)</h1>";
+			break;
+
+			case 3:
+			echo "<h1>Inventory System (Office Clerk)</h1>";
+			break;
+
+		}
+
+	include("include/nav.php");
+
+	include("include/inventory.php");
+	include("include/alert.php");
+	include("include/sales.php");
+	include("include/addproitem.php");
+	include("include/addpro.php");
+	include("include/editprice.php");
+	include("include/editproduct.php");
+
+	include("include/product_list.php");
+	include("include/staff_list.php");
+
+}
 
 ?>
 

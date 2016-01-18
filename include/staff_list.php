@@ -1,56 +1,5 @@
 <div class="content" id="listofstaff">
 <div class="panel panel-default" style="padding-bottom:10px">
-<?php
-
-if(isset($_GET['staff_id'])){
-	
-?>
-
-<div align="center">
-<table>
-
-<tr>
-
-<td>FirstName</td><td>:</td><td><input type="text" class="form-control input-sm"></td>
-
-</tr>
-
-<tr>
-
-<td>LastName</td><td>:</td><td><input type="text" class="form-control input-sm"></td>
-
-</tr>
-
-<tr>
-
-<td>Email</td><td>:</td><td><input type="text" class="form-control input-sm"></td>
-
-</tr>
-
-<tr>
-
-<td>
-</td>
-
-<td></td>
-
-<td>
-
-<a href="tableedit.php#page=listofstaff" class="btn btn-warning btn-sm">Back</a>
-<span class="btn btn-primary btn-sm">Save</span>
-
-</td>
-
-</tr>
-
-</table>
-</div>
-<?php
-	
-	
-} else {
-
-?>
   <!-- Default panel contents -->
   <div class="panel-heading">List Of Staff</div>           
   <table class="table table-bordered">
@@ -58,7 +7,6 @@ if(isset($_GET['staff_id'])){
       <tr>
         <th>No.</th>
         <th>Lastname</th>
-        <th>Email</th>
         <th>Roles</th>
 		<th style="width:30px; text-align:center;">Modify</th>
       </tr>
@@ -69,6 +17,10 @@ if(isset($_GET['staff_id'])){
 	
 	$sql = mysql_query("select * from user where id is not null");
 	$counter = 0;
+
+	function optionSelected() {
+		echo "selected=selected";
+	}
 	
 	while($show = mysql_fetch_array($sql)){
 		
@@ -79,20 +31,20 @@ if(isset($_GET['staff_id'])){
       <tr>
 	  
         <td><?=$counter; ?></td>
-        <td>Doe</td>
-        <td>john@example.com</td>
+        <td><?=$show['username']?></td>
 		<td>
 		
 		<select name="set_role" class="form-control input-sm">
 		
-		<option value="1">Administrator</option>
-		<option value="2">Manager</option>
-		<option value="3">Office Clerk</option>
+		<option value="1" <?php if($show['role']==1) { optionSelected(); } ?>>Administrator</option>
+		<option value="2" <?php if($show['role']==2) { optionSelected(); } ?> >Manager</option>
+		<option value="3" <?php if($show['role']==3) { optionSelected(); } ?>>Office Clerk</option>
 		
 		</select>
 		</td>
 		<td style="width:30px;">
-		<span onclick="editData(<?=$show['id'];?>)" class="btn btn-default input-sm">Edit</span>
+		<span id="resultStatus<?=$show['id'];?>"></span>
+		<span onclick="editUpdateRole(<?=$show['id'];?>)" class="btn btn-default input-sm">Save</span>
 		</td>
 		
       </tr>
@@ -103,13 +55,33 @@ if(isset($_GET['staff_id'])){
     </tbody>
   </table>
   
-<?php } ?>
-  
   <script>
+
+  var defaultRole = $('[name=set_role]').val();
+
+  $('[name=set_role]').change(function(key){
+
+  	var roleSelected = key.currentTarget.value;
+
+  	defaultRole = roleSelected;
+
+  })
   
-  function editData(staff_id){
-	  
-	  window.location= "tableedit.php?staff_id="+staff_id+"#page=listofstaff";
+  function editUpdateRole(staff_id){
+
+  	$.ajax({
+        type: "GET",
+        url: "include/updaterole.php?staffId="+staff_id+"&staffUpdate=true&role="+defaultRole,
+        beforeSend: function(){ $('#resultStatus'+staff_id).fadeIn(250).css('color', '#017c04').html('processing...'); },
+        success: function(result){
+
+         $('#resultStatus'+staff_id).fadeIn(250).css('color', '#017c04').html('Saved Successfully!')
+
+         setTimeout(function () { window.location.reload(); }, 2000);
+
+     },
+        error: function(){ $('#resultStatus'+staff_id).fadeIn(250).css('color', '#ff464a').html('An error occurred!').delay(500).fadeOut(250); }
+    });
 	  
   }
   

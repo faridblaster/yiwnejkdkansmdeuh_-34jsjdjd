@@ -57,6 +57,7 @@ $member = mysql_fetch_assoc($result);
 $_SESSION['SESS_MEMBER_ID'] = $member['id'];
 $_SESSION['SESS_FIRST_NAME'] = $member['username'];
 $_SESSION['SESS_LAST_NAME'] = $member['password'];
+$_SESSION['SESS_ROLE_SET'] = $member['role'];
 session_write_close();
 header("location: tableedit.php");
 exit();
