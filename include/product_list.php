@@ -7,6 +7,7 @@
       <tr>
         <th>No.</th>
         <th>Name</th>
+        <th style="width:30px;"></th>
       </tr>
     </thead>
     <tbody>
@@ -26,6 +27,7 @@
 	  
         <td><?=$counter; ?></td>
         <td><?=$show['item']; ?></td>
+        <td><a href="#" onclick="javascript:del_product(<?=$show['id']; ?>)">Delete</a></td>
 		
       </tr>
 	  
@@ -38,3 +40,40 @@
   </div>
 
 </div>
+<script type="text/javascript">
+
+function del_product(deleteID){
+
+	swal({
+          title: "",
+          text: "Adakah Anda Ingin Menghapuskan Produk ini ?",
+          type: "warning",
+          showCancelButton: true,
+          confirmButtonText: "Ya",
+          cancelButtonText: "Tidak",
+          closeOnConfirm: false,
+          closeOnCancel: true
+        }, function () {
+
+        	$.ajax({
+                type: "POST",
+                url: "include/delete.php?deleteID=" + deleteID,
+                data: "deleteID="+ deleteID,
+                success: function(result){
+                    swal({
+		                title: '',
+		                text: 'Maklumat dihapuskan',
+		                confirmButtonText: 'OK',
+		                type: 'success'
+		             });
+
+                    window.location = "tableedit.php#page=inventory";
+                }
+            });
+
+        });
+
+}
+
+
+</script>
