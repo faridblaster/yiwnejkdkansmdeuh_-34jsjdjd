@@ -16,6 +16,7 @@
 
 	<?php if($roles_sess == 1){ ?>
 	<li><a href="#listofstaff"><span>List Of Staff</span></a></li>
+	<li><a href="#generate_report"><span>Generate Report</span></a></li>
 	<?php } ?>
 
 	<li><a href="index.php"><span>Logout</span></a></li>
@@ -71,6 +72,7 @@
 
 	   <tr menu>
 	   <td><a href="#listofstaff"><span>List Of Staff</span></a></td>
+	   <td><a href="#generate_report"><span>Generate Report</span></a></td>
 	   </tr>
 
 	   <?php } ?>

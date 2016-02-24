@@ -156,7 +156,7 @@ while($row = mysql_fetch_array($result1))
  }
 
 ?></b><br /><br />
-<!--<input name="" type="button" value="Print" onclick="javascript:child_open()" style="cursor:pointer;" />!-->
+<input name="" type="button" value="Print" onclick="javascript:child_open()" style="cursor:pointer;" />
 </div>
 <br />
 <br />

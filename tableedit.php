@@ -212,6 +212,7 @@ if(isset($_SESSION['SESS_ROLE_SET'])){
 
 	include("include/product_list.php");
 	include("include/staff_list.php");
+	include("include/generate_report.php");
 
 }
 
@@ -219,7 +220,7 @@ if(isset($_SESSION['SESS_ROLE_SET'])){
 
 <script src="activatables.js" type="text/javascript"></script>
 <script type="text/javascript">
-activatables('page', ['inventory', 'alert', 'sales', 'addproitem', 'addpro', 'editprice', 'editproduct', 'listofproduct', 'listofstaff']);
+activatables('page', ['inventory', 'alert', 'sales', 'addproitem', 'addpro', 'editprice', 'editproduct', 'listofproduct', 'listofstaff', 'generate_report']);
 </script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->

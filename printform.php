@@ -102,6 +102,7 @@ if($i%2)
 <td>
 <span id="last_<?php echo $id; ?>" class="text">
 <?php
+$rtrt = 0;
 $sqls=mysql_query("select * from sales where date='$da' and product_id='$id'");
 while($rows=mysql_fetch_array($sqls))
 {
