@@ -62,10 +62,12 @@ $('[name="update_price"]').click(function() {
         beforeSend: function(){ $('#resultStatus').fadeIn(250).css('color', '#017c04').html('processing...'); },
         success: function(result){
 
+        	console.log(result);
+
          $('#resultStatus').fadeIn(250).css('color', '#017c04').html('Saved Successfully!').delay(500).fadeOut(250); 
 
-         window.location = "#page=inventory";
-         window.location.reload();
+         //window.location = "#page=inventory";
+         //window.location.reload();
 
      },
         error: function(){ $('#resultStatus').fadeIn(250).css('color', '#ff464a').html('An error occurred!').delay(500).fadeOut(250); }
